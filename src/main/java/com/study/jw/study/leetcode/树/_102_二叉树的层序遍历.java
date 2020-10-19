@@ -18,10 +18,10 @@ public class _102_二叉树的层序遍历 {
 
         while (!queue.isEmpty()) {
 
-            int size=queue.size();
+            int size = queue.size();
 
-            List<Integer> integerList=new ArrayList<Integer>();
-            for (int i = 0; i <size ; i++) {
+            List<Integer> integerList = new ArrayList<Integer>();
+            for (int i = 0; i < size; i++) {
                 TreeNode node = queue.poll();
                 Integer val = node.val;
                 integerList.add(val);

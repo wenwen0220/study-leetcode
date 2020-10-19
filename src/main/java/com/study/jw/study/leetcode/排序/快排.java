@@ -1,42 +1,37 @@
 package com.study.jw.study.leetcode.排序;
 
 /**
- * Created by jww on 20200806.
+ * Created by jww on 20200808.
  * Describe
  */
-public class _快速排序 {
-    private static Integer[] nums = Integers.random(100, 1, 100000);
+public class 快排 {
+
+
+    private static Integer[] nums = Integers.random(10, 0, 100);
 
     public static void main(String[] args) {
 
-        //0 1 2 3 4 5 6 7
-        //1,3,7,6,4,5,2,8
-
-        sort(0, nums.length);
         Integers.println(nums);
-
+        sort(0, nums.length - 1);
+        Integers.println(nums);
     }
 
+    //递归
     public static void sort(int begin, int end) {
-        if (end - begin < 2) return;
 
-        //获得轴点元素的位置，交换完位置才有了轴点元素。
+        //第一次就要写递归的停止条件
+        if (end - begin < 1) return;
         int mid = getMid(begin, end);
-        //递归2边
         sort(begin, mid);
-        sort(mid+1, end);
+        sort(mid + 1, end);
     }
 
+    //获取轴点元素，每次把将begin、end与轴点元素比较。
     private static int getMid(int begin, int end) {
         int x = nums[begin];
-        end--;
-        /*
-         3个while循环
-         每次都跟轴点元素比较
-         */
         while (begin < end) {
             while (begin < end) {
-                if (nums[end] - x > 0) {
+                if (nums[end] > x) {
                     end--;
                 } else {
                     nums[begin] = nums[end];
@@ -45,7 +40,7 @@ public class _快速排序 {
                 }
             }
             while (begin < end) {
-                if (x - nums[begin] > 0) {
+                if (nums[begin] < x) {
                     begin++;
                 } else {
                     nums[end] = nums[begin];
