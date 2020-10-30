@@ -30,9 +30,9 @@ public class _300_最长上升子序列 {
         int[] dp=new int[nums.length];
         int max=1;
         dp[0]=1;
-        for (int i = 1; i < nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) {
             dp[i]=1;
-            for(int j=1;j<i;j++){
+            for(int j=0;j<i;j++){
                 if(nums[i]<nums[j]){
                     continue;
                 }
